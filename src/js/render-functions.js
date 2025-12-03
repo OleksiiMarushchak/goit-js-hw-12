@@ -8,6 +8,7 @@ const lightbox = new SimpleLightbox('.gallery a', {
 
 export const createGallery = (images) => {
   const galleryContainer = document.getElementById('gallery');
+  if (!galleryContainer) return;
 
   const html = images
     .map(
@@ -49,15 +50,30 @@ export const createGallery = (images) => {
 
 export const clearGallery = () => {
   const galleryContainer = document.getElementById('gallery');
+  if (!galleryContainer) return;
   galleryContainer.innerHTML = '';
 };
 
 export const showLoader = () => {
-  
-  document.getElementById('loader').classList.remove('is-hidden');
+  const loader = document.getElementById('loader');
+  if (!loader) return;
+  loader.classList.remove('is-hidden');
 };
 
 export const hideLoader = () => {
-  
-  document.getElementById('loader').classList.add('is-hidden');
+  const loader = document.getElementById('loader');
+  if (!loader) return;
+  loader.classList.add('is-hidden');
+};
+
+export const showLoadMoreButton = () => {
+  const button = document.getElementById('load-more');
+  if (!button) return;
+  button.classList.remove('is-hidden');
+};
+
+export const hideLoadMoreButton = () => {
+  const button = document.getElementById('load-more');
+  if (!button) return;
+  button.classList.add('is-hidden');
 };
